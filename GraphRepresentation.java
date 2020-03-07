@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class GraphRepresentation {
+	public static GUI gui = new GUI();
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String v1 = "", v2 = "";
@@ -30,6 +31,7 @@ public class GraphRepresentation {
         System.out.println("AdjList: \n" + s);
         System.out.println("Representation Matrix: \n" );
         g.printRepresentationMatrix();
+        gui.main(g);
     }
     
 

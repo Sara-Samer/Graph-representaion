@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class GraphRepresentation {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String v1 = "", v2 = "";
@@ -147,25 +146,14 @@ class graph{
     public String getAdjMatrix(){
         int[][] mat = this.adjMatrix();
         String s = "  ";
-        // for (int j = 0; j < this.vNum; j++)
-        //     s = s + vertices[j].getName() + " ";
-        // s += '\n';
-        // for (int i = 0; i < this.vNum; i++) {
-        //     s = s + vertices[i].getName() + " ";
-        //         for (int j = 0; j < this.vNum; j++)
-        //         if(mat[i][j])
-        //             s = s + "1 ";
-        //         else
-        //             s = s + "0 ";
-        //     s = s + '\n';
-        // }
-        //System.out.println(Arrays.deepToString(mat));
-        //s = Arrays.deepToString(mat).replace("], ", "]\n").replace("[[", "[").replace("]]", "]");
-        //System.out.println(Arrays.deepToString(mat));
-        s = "  " + Arrays.deepToString(mat)
-        .replace("],","\n")
-        .replace(",","\t|")
-        .replaceAll("[\\[\\]]", "");
+        for (int j = 0; j < this.vNum; j++)
+            s = s + "  " + vertices[j].getName() + " ";
+        s += '\n';
+        for (int i = 0; i < this.vNum; i++) {
+            s = s + vertices[i].getName() + " ";
+            int[] row = mat[i];
+            s += Arrays.toString(row) + '\n'; 
+        }
         return s;
     }
     private int[][] incMat(){
@@ -175,8 +163,12 @@ class graph{
                 edge e = edges[j];
                 int src = e.src;
                 int dst = e.dst;
-                mat[src][dst] = -1;
-                mat[dst][dst] = 1;
+                if(src == dst){
+                    mat[src][j] = 1;
+                }else{
+                    mat[src][j] = 1;
+                    mat[dst][j] = -1;
+                }
             }
             
         }
@@ -185,21 +177,14 @@ class graph{
     public String getIncMat(){
         int[][] mat = this.incMat();
         String s = "  ";
-        // for (int j = 0; j < this.eNum; j++)
-        //     s = s + "E" + j + " ";
-        // s += '\n';
-        // for (int i = 0; i < this.vNum; i++) {
-        //     s = s + vertices[i].getName() + " ";
-        //     for (int j = 0; j < this.eNum; j++)
-        //         s = s + mat[i][j] + " ";
-        //     s = s + '\n';
-        // }
-        //s = Arrays.deepToString(mat).replace("], ", "]\n").replace("[[", "[").replace("]]", "]");
-        //System.out.println(Arrays.deepToString(mat));
-        s = "  " + Arrays.deepToString(mat)
-        .replace("],","\n")
-        .replace(",","\t|")
-        .replaceAll("[\\[\\]]", "");
+        for (int j = 0; j < this.eNum; j++)
+            s = s + "  E" + (j+1) + " ";
+        s += '\n';
+        for (int i = 0; i < this.vNum; i++) {
+            s = s + vertices[i].getName() + " ";
+            int[] row = mat[i];
+            s += Arrays.toString(row) + '\n'; 
+        }
         return s;
     }
 

@@ -1,8 +1,11 @@
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 public class GraphRepresentation {
 	public static GUI gui = new GUI();
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         String v1 = "", v2 = "";
         System.out.println("Enter number of vertices: ");
@@ -31,6 +34,11 @@ public class GraphRepresentation {
         System.out.println("AdjList: \n" + s);
         System.out.println("Representation Matrix: \n" );
         g.printRepresentationMatrix();
+        ProcessBuilder builder = new ProcessBuilder("python D:\\FCI\\Codes\\Graph-representaion\\main.py");
+        builder.redirectErrorStream(true);
+        Process process = builder.start();
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(process.getOutputStream()));
+        bw.write("1  1  1");
         gui.main(g);
     }
     

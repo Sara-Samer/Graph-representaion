@@ -147,7 +147,7 @@ class graph{
         int[][] mat = this.adjMatrix();
         String s = "  ";
         for (int j = 0; j < this.vNum; j++)
-            s = s + "  " + vertices[j].getName() + " ";
+            s = s + " " + vertices[j].getName() + " ";
         s += '\n';
         for (int i = 0; i < this.vNum; i++) {
             s = s + vertices[i].getName() + " ";
@@ -178,7 +178,7 @@ class graph{
         int[][] mat = this.incMat();
         String s = "  ";
         for (int j = 0; j < this.eNum; j++)
-            s = s + "  E" + (j+1) + " ";
+            s = s + "E" + (j+1) + " ";
         s += '\n';
         for (int i = 0; i < this.vNum; i++) {
             s = s + vertices[i].getName() + " ";

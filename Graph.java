@@ -55,6 +55,8 @@ public class Graph {
             return;
         Vertex v = vertices[index1];
         v.adj.add(index2); 
+        v = vertices[index2];
+        v.adj.add(index1); 
         edges[i] = new Edge(index1, index2);
 
     }

@@ -34,6 +34,7 @@ public class GraphRepresentation {
         System.out.println("AdjList: \n" + s);
         System.out.println("Representation Matrix: \n" );
         g.printRepresentationMatrix();
+        gui.main(g);
         ProcessBuilder builder = new ProcessBuilder("python main.py");
         builder.redirectErrorStream(true);
         Process process = builder.start();
@@ -44,7 +45,7 @@ public class GraphRepresentation {
         	in += g.edges[i].src + " " + g.edges[i].dst + " ";
         }
         bw.write(in);
-        gui.main(g);
+        
     }
     
 

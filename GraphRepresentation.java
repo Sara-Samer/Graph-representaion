@@ -162,10 +162,10 @@ class graph{
         //System.out.println(Arrays.deepToString(mat));
         //s = Arrays.deepToString(mat).replace("], ", "]\n").replace("[[", "[").replace("]]", "]");
         //System.out.println(Arrays.deepToString(mat));
-        s = Arrays.deepToString(mat)
+        s = "  " + Arrays.deepToString(mat)
         .replace("],","\n")
-        .replace(",","\t| ")
-        .replaceAll("[\\[\\]]", " ");
+        .replace(",","\t|")
+        .replaceAll("[\\[\\]]", "");
         return s;
     }
     private int[][] incMat(){
@@ -196,10 +196,10 @@ class graph{
         // }
         //s = Arrays.deepToString(mat).replace("], ", "]\n").replace("[[", "[").replace("]]", "]");
         //System.out.println(Arrays.deepToString(mat));
-        s = Arrays.deepToString(mat)
+        s = "  " + Arrays.deepToString(mat)
         .replace("],","\n")
-        .replace(",","\t| ")
-        .replaceAll("[\\[\\]]", " ");
+        .replace(",","\t|")
+        .replaceAll("[\\[\\]]", "");
         return s;
     }
 

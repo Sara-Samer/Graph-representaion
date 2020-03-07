@@ -34,7 +34,7 @@ public class GraphRepresentation {
         System.out.println("AdjList: \n" + s);
         System.out.println("Representation Matrix: \n" );
         g.printRepresentationMatrix();
-        ProcessBuilder builder = new ProcessBuilder("python D:\\FCI\\Codes\\Graph-representaion\\main.py");
+        ProcessBuilder builder = new ProcessBuilder("python main.py");
         builder.redirectErrorStream(true);
         Process process = builder.start();
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(process.getOutputStream()));

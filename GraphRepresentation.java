@@ -38,7 +38,12 @@ public class GraphRepresentation {
         builder.redirectErrorStream(true);
         Process process = builder.start();
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(process.getOutputStream()));
-        bw.write("1  1  1");
+        String in = "";
+        in += g.edges.length + " ";
+        for(int i = 0 ; i < g.edges.length ; i++) {
+        	in += g.edges[i].src + " " + g.edges[i].dst + " ";
+        }
+        bw.write(in);
         gui.main(g);
     }
     

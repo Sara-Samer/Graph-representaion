@@ -41,7 +41,7 @@ public class GraphRepresentation {
         		"import networkx as nx\r\n" + 
         		"\r\n" + 
         		"G = None\r\n" + 
-        		"G = nx.DiGraph()\r\n" + 
+        		"G = nx.MultiDiGraph()\r\n" + 
         		"nEdges = int(input(\"Enter the number of edges: \"))\r\n" + 
         		"\r\n" + 
         		"for i in range(nEdges):\r\n" + 

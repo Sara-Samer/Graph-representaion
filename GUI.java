@@ -4,7 +4,6 @@ import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.Vector;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -27,6 +26,9 @@ public class GUI extends  JPanel {
         Vector<Integer> x = new Vector<>();
         Vector<Integer> y = new Vector<>();
         
+        Vector<Integer> x2 = new Vector<>();
+        Vector<Integer> y2 = new Vector<>();
+        
         for(int i = 0, j = 0 ; i < g.vertices.length; i++, j++) {
         	if(i == counter) {
         		j = 0;
@@ -40,7 +42,10 @@ public class GUI extends  JPanel {
         }
         for(int i = 0; i < g.edges.length ; i++) {
         	//gr.drawLine(70, 70, 180, 180);
-        	gr.drawLine(x.elementAt(g.edges[i].src), y.elementAt(g.edges[i].dst),180, 180);
+        	if((g.edges[i].src) == (g.edges[i].dst)) {
+        		gr.drawArc(x.elementAt((g.edges[i].src)), y.elementAt((g.edges[i].dst)) - 20, 30, 30, 90, -180);
+        	}else
+        		gr.drawLine(x.elementAt(g.edges[i].src),y.elementAt(g.edges[i].src) ,x.elementAt(g.edges[i].dst), y.elementAt(g.edges[i].dst));
         }
         
         //gr.drawOval(40, 40, 70, 70);
@@ -48,6 +53,7 @@ public class GUI extends  JPanel {
         //gr.drawOval(180, 180, 70, 70);
         //g.drawArc(70, 70, 200, 200, 200, 200);
         //
+        
         GUI panel = new GUI();
         
         panel.setLayout(new GridBagLayout());

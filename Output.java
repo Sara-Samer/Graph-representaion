@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -15,7 +16,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 public class Output {
 
 	private JFrame frame;
-	private JTextField textField_1;
+	private JTextArea textField_1;
 	public String out = "";
 
 	/**
@@ -53,7 +54,7 @@ public class Output {
 		frame.setBounds(100, 100, 969, 590);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JLabel lblNewLabel_1 = new JLabel("output : ");
-		textField_1 = new JTextField(out);
+		textField_1 = new JTextArea(out);
 		textField_1.setColumns(10);
 		this.textField_1.setText(out);
 		GraphRepresentation g = new GraphRepresentation();

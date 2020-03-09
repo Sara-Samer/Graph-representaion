@@ -5,7 +5,8 @@ import java.util.Scanner;
 import java.io.*;
 public class GraphRepresentation {
 	public static GUI gui = new GUI();
-    public static void main(int v , int e , String v1, String v2) throws IOException {
+    public static String output = "";
+	public static void main(int v , int e , String v1, String v2) throws IOException {
         Scanner sc = new Scanner(System.in);
         //v1 = "", v2 = "";
         //System.out.println("Enter number of vertices: ");
@@ -50,14 +51,23 @@ public class GraphRepresentation {
             g.addEdge(eFrom[i], eTo[i], i);   
         }
         sc.close();
+        
         String s = g.getAdjMatrix();
         System.out.println("AdjMatrix: \n" + s);
+        output += "AdjMatrix: \n" + s + "\n";
         s = g.getIncMat();
         System.out.println("IncMatrix: \n" + s);
+        output += "IncMatrix: \n" + s + "\n";
         s = g.adjList();
         System.out.println("AdjList: \n" + s);
+        output += "AdjList: \n" + s + "\n";
         System.out.println("Representation Matrix: \n" );
-        g.printRepresentationMatrix();
+        output += "Representation Matrix: \n" + "\n";
+        output += g.printRepresentationMatrix();
+        
+        Output outputInterface = new Output(output);
+        outputInterface.main(outputInterface);
+        
         gui.main(g);
         
         String prg = "import sys\r\n" + 
@@ -120,7 +130,9 @@ public class GraphRepresentation {
         
         
     }
-    
+    public static String getOut() {
+    	return output;
+    }
 
 
 }

@@ -20,24 +20,33 @@ public class Graph {
         }
        return representionMatrix;
     }
-    public void printRepresentationMatrix( )
+    public String printRepresentationMatrix( )
     {
+    	String out = "";
         int [][] representionMatrix = buildRepresentationMatrix();
         System.out.println("The Representation Matrix");
+        out += "The Representation Matrix" + "\n";
         
-        for(int i=0 ;i<vertices.length ; i++)
+        for(int i=0 ;i<vertices.length ; i++) {
               System.out.print("    "+vertices[i].name);
+              out += "    "+vertices[i].name;
+        }
         
         System.out.println();
+        out += "\n";
         for(int i=0 ;i<vertices.length ; i++)
         {
             System.out.print(vertices[i].name+ "  ");
+            out += vertices[i].name+ "  ";
             for(int j=0 ;j<vertices.length ; j++)
             {
                 System.out.print(representionMatrix[i][j]+ "     ");
+                out += representionMatrix[i][j]+ "     ";
             }
             System.out.println();
+            out += "\n";
         }
+        return out;
     }
     
     public int getVertexIndex(String name){

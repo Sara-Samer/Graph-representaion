@@ -5,25 +5,49 @@ import java.util.Scanner;
 import java.io.*;
 public class GraphRepresentation {
 	public static GUI gui = new GUI();
-    public static void main(String[] args) throws IOException {
+    public static void main(int v , int e , String v1, String v2) throws IOException {
         Scanner sc = new Scanner(System.in);
-        String v1 = "", v2 = "";
-        System.out.println("Enter number of vertices: ");
-        int v = sc.nextInt();
-        System.out.println("Enter number of edges: ");
-        int e = sc.nextInt();
+        //v1 = "", v2 = "";
+        //System.out.println("Enter number of vertices: ");
+        //v = sc.nextInt();
+        //System.out.println("Enter number of edges: ");
+        //e = sc.nextInt();
         Graph g = new Graph(v, e);
+        String[] v11 = new String[v];
+        String[] eFrom = new String[e];
+        String[] eTo = new String[e];
+        boolean from = true;
+        
+        for(int i = 0, f = 0, t = 0 ; i < v2.length() ; i++) {
+        	if(v2.charAt(i) != ' ' && from) {
+        		eFrom[f] = "" + v2.charAt(i);
+        		f++;
+        		from = false;
+        	}
+        	else if(v2.charAt(i) != ' ') {
+        		eTo[t] = "" + v2.charAt(i);
+        		t++;
+        		from = true;
+        	}
+        }
+        
+        for(int i = 0, j = 0 ; i < v1.length() ; i++) {
+        	if(v1.charAt(i) != ' ') {
+        		v11[j] = "" + v1.charAt(i);
+        		j++;
+        	}
+        }
         for (int i = 0; i < g.vNum; i++) {
-            System.out.println("Enter vertex name: ");
-            v1 = sc.next();
-            g.addVertex(i, v1);
+            //System.out.println("Enter vertex name: ");
+            //v1 = sc.next();
+            g.addVertex(i, v11[i]);
         }
         for (int i = 0; i < g.eNum; i++) {
-            System.out.println("Enter source node: ");            
-            v1 = sc.next();
-            System.out.println("Enter distination node: ");
-            v2 = sc.next();
-            g.addEdge(v1, v2, i);   
+            //System.out.println("Enter source node: ");            
+            //v1 = sc.next();
+            //System.out.println("Enter distination node: ");
+            //v2 = sc.next();
+            g.addEdge(eFrom[i], eTo[i], i);   
         }
         sc.close();
         String s = g.getAdjMatrix();
